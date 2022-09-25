@@ -242,5 +242,108 @@ function booWho(bool) {
 
 const booWho2 = (bool) => typeof(bool) === 'boolean' ? true : false;
 
+//! Task 11
 
+/*
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+For the purpose of this exercise, you should also capitalize connecting words like the and of.
+*/
 
+// Imperative
+
+function titleCase(str) {
+  let arr = str.split(" ")
+  arr = arr.map(elem => elem.toLowerCase())
+  arr = arr.map(elem => elem[0].toUpperCase() + elem.slice(1))
+  str = arr.join(" ")
+  console.log(str)
+  return str
+}
+
+// Declarative
+
+const titleCase2 = str => str.split(' ').map(elem => elem[0].toUpperCase() + elem.slice(1).toLowerCase()).join(' ')
+
+//! Task 12
+
+/*
+Copy each element of the first array into the second array, in order.
+Begin inserting elements at index n of the second array.
+Return the resulting array. The input arrays should remain the same after the function runs.
+*/
+
+// Imperative
+
+function frankenSplice(arr1, arr2, n) {
+  let finalArr = [...arr2];
+  finalArr.splice(n, 0, ...arr1);
+  return finalArr;
+}
+
+// Declarative
+
+//! Task 13
+
+/*
+Remove all falsy values from an array.
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+Hint: Try converting each value to a Boolean.
+*/
+
+// Imperative
+
+function bouncer(arr) {
+  let newArr = [];
+  arr.forEach(el => {
+    if(Boolean(el)) {
+      newArr.push(el)
+    }
+  })
+  return newArr;
+}
+
+// Declarative
+
+const bouncer2 = arr => arr.filter(el => Boolean(el))
+
+//! Task 14
+
+/*
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted.
+The returned value should be a number.
+For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+Likewise, getIndexToIns([20,3,5], 19) should return 2 
+because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+*/
+
+// Imperative
+
+function getIndexToIns(arr, num) {
+  let newArr = [...arr]
+  newArr.push(num)
+  newArr.sort(function(a, b) {
+    return a - b;
+  });
+  return newArr.indexOf(num)
+}
+
+// Declarative
+
+//! Task 15
+
+/*
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+The arguments ["hello", "hey"] should return false because the string hello does not contain a y.
+Lastly, ["Alien", "line"], should return true because all of the letters in line are present in Alien.
+*/
+
+// Imperative
+
+function mutation(arr) {
+
+}
+
+console.log(mutation(["hello", "hey"]))
+
+// Declarative
